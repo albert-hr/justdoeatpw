@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Dashboard Vis&atilde;o Geral</title>
+    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../public/css/dashboardv2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-dashboard">
+        <div class="container">
+            <a href="index.html">
+                <img src="../public/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat" class="logo-pequena">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">In&iacute;cio</a></li>
+                    <li><a href="listasderestaurantes.html">Restaurantes</a></li>
+                    <li><a href="listasderestaurantes.html">Comidas</a></li>
+                    <li><a href="listasderestaurantes.html">Bebidas</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <form action="/api/logout" method="post">
+                    <button type="submit" class="btn btn-secondary">Sair</button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-background-wrapper">
+        <div class="container">
+            <div class="page-return">
+                <a href="index.html">&larr; Voltar ao início</a>
+            </div>
+        </div>
+
+        <div class="page-logo-center">
+            <img src="../public/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat">
+            <h1>Just do Eat</h1>
+        </div>
+
+        <main class="container">
+            <div class="dashboard-container">
+                <aside class="sidebar">
+                    <h2>Dashboard</h2>
+                    <ul class="sidebar-menu">
+                        <li><a href="dashboardv2.html" class="active">Meus Pedidos</a></li>
+                        <li><a href="listar.html">Gerenciar Card&aacute;pio</a></li>
+                        <li><a href="dashboardv2.html">Relat&oacute;rios</a></li>
+                        <li><a href="dashboardv2.html">Configura&ccedil;&atilde;o do Restaurante</a></li>
+                        <li><a href="dashboardv2.html">Perfil</a></li>
+                    </ul>
+                </aside>
+
+                <section class="main-content">
+                    <h2>Vis&atilde;o Geral</h2>
+
+                    <div class="widgets-grid">
+                        <div class="widget">
+                            <h3>Pedidos Ativos</h3>
+                            <p class="widget-value-large">3</p>
+                        </div>
+
+                        <div class="widget">
+                            <h3>Resumo de Itens Mais Vendidos</h3>
+                            <ul class="top-items-list">
+                                <li>1 - X-Salada</li>
+                                <li>2 - X-Tudo</li>
+                                <li>3 - X-Bacon</li>
+                            </ul>
+                        </div>
+
+                        <div class="widget">
+                            <h3>Vendas do Dia</h3>
+                            <p class="widget-value-medium">R$ 100,00</p>
+                        </div>
+
+                        <div class="widget">
+                            <h3>Avalia&ccedil;&otilde;es Recentes</h3>
+                            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="../public/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat">
+            </div>
+            <div class="footer-links">
+                <h4>Just Do Eat</h4>
+                <ul>
+                    <li><a href="quemsomos.html">Quem Somos N&oacute;s</a></li>
+                    <li><a href="contato.html">Carreiras</a></li>
+                    <li><a href="contato.html">Institui&ccedil;&otilde;es Parceiras</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Descubra</h4>
+                <ul>
+                    <li><a href="registro.html">Cadastre Seu Restaurante</a></li>
+                    <li><a href="contato.html">Seja Nosso Entregador!</a></li>
+                    <li><a href="quemsomos.html">ODS's</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Social</h4>
+                <a href="https://www.facebook.com"><img src="../public/images/icons/facebook_icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="../public/images/icons/instagram_icon.png" alt="Instagram"></a>
+                <a href="https://www.whatsapp.com"><img src="../public/images/icons/whatsapp_icon.png" alt="WhatsApp"></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; Copyright 2025 - Just Do Eat - Todos os direitos reservados Just do Eat S.A.</p>
+        </div>
+    </footer>
+    <script src="../public/js/app.js"></script>
+</body>
+</html>
