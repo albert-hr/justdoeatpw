@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const pool = require('../utils/db');
 
 async function registrar(req, res) {
-  const { nome, email, senha } = req.body;
+  const { nome, email, senha, perfil } = req.body;
   try {
     const existe = await pool.query(
       'SELECT id FROM usuarios WHERE email = $1', [email]
@@ -14,14 +14,16 @@ async function registrar(req, res) {
     const senhaHash = await bcrypt.hash(senha, 10);
 
     const resultado = await pool.query(
-      'INSERT INTO usuarios (nome, email, senha_hash) VALUES ($1, $2, $3) RETURNING id, nome, email',
-      [nome, email, senhaHash]
+      'INSERT INTO usuarios (nome, email, senha_hash, perfil) VALUES ($1, $2, $3, $4) RETURNING id, nome, email, perfil',
+      [nome, email, senhaHash, perfil || 'Cliente']
     );
 
     req.session.usuario = resultado.rows[0];
 
+    const redirectTo = perfil === 'Restaurante' ? '/dashboardv2.html' : '/meu-perfil.html';
+
     return res.status(201).json({
-      redirectTo: '/meu-perfil.html',
+      redirectTo,
       user: resultado.rows[0]
     });
   } catch (err) {
