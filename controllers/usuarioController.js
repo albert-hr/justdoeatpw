@@ -57,7 +57,11 @@ async function login(req, res) {
       perfil: usuario.perfil
     };
 
-    const redirectTo = usuario.perfil === 'Restaurante' ? '/dashboardv2.html' : '/meu-perfil.html';
+    const redirectTo = usuario.perfil === 'Restaurante'
+      ? '/dashboardv2.html'
+      : usuario.perfil === 'admin'
+      ? '/admin.html'
+      : '/meu-perfil.html';
 
     return res.status(200).json({
       redirectTo,
