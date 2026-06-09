@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Do Eat - Quem Somos</title>
+    <title>Just Do Eat - Login</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="form-page">
     <header>
         <div class="container">
             <a href="index.html"><img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat" class="logo"></a>
@@ -32,30 +33,30 @@
     </header>
 
     <main>
-        <div class="about-us-container">
-            <div class="container content-grid">
-                <div class="mission-section">
-                    <h1>Qual a Nossa Missão?</h1>
-                    <p>
-                        Atender o máximo de pessoas que buscam alimentos de qualidade, com a praticidade de um clique, atendendo também uma parcela vulnerável da sociedade.
-                    </p>
-                    <div class="slogan-section">
-                        <img src="/images/icons/logo_justdoeat.png" alt="Logo Just do Eat">
-                        <h2>Quando quiser, onde estiver.</h2>
-                        <div class="ods-section">
-                            <h2>Quais ODS's Atendemos?</h2>
-                            <ul>
-                                <li>2 – Fome Zero;</li>
-                                <li>3 – Boa Saúde e Bem-estar;</li>
-                                <li>9 – Industria, inovação e infraestrutura.</li>
-                            </ul>
-                            <div class="objetivos-section">
-                                <img src="/images/icons/objetivos_port 1.png" alt="Objetivos de Desenvolvimento">
-                            </div>
-                        </div>
-                    </div>
+        <div class="form-container">
+            <form action="/api/login" method="post" id="login-form" novalidate>
+                <input type="hidden" name="acao" value="login">
+                <img src="/images/icons/logo_justdoeat.png" alt="Logo">
+                <h4>Entre com a sua conta!</h4>
+
+                <div class="form-group">
+                    <label for="email">Insira o E-mail</label>
+                    <input type="email" name="email" id="email" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="senha">Insira a Senha</label>
+                    <input type="password" name="senha" id="senha" aria-describedby="login-password-hint" required>
+                    <small class="field-hint" id="login-password-hint">Use a senha cadastrada. Para teste: mínimo de 6 caracteres.</small>
+                </div>
+
+                <button type="submit" class="sb btn-primary">Entrar</button>
+
+                <div class="form-links">
+                    <a href="index.html">Voltar ao início</a>
+                    <a href="registro.html">Criar conta</a>
+                    <a href="contato.html">Esqueceu a senha?</a>
+                </div>
+            </form>
         </div>
     </main>
 
@@ -91,6 +92,8 @@
             <p>&copy; Copyright 2025 - Just Do Eat - Todos os direitos reservados Just do Eat S.A.</p>
         </div>
     </footer>
+    <script src="/js/app.js"></script>
+    <script src="/js/login.js"></script>
 </body>
 </html>
 
