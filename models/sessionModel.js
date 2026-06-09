@@ -34,7 +34,7 @@ function createSession(res, userId) {
 
   res.setHeader(
     "Set-Cookie",
-    `sessionId=${encodeURIComponent(sessionId)}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${SESSION_MAX_AGE_SECONDS}`
+    `sessionId=${sessionId}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${SESSION_MAX_AGE_SECONDS}`
   );
 }
 
