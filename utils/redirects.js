@@ -2,7 +2,7 @@ function getDashboardByPerfil(perfil) {
   const normalizedPerfil = String(perfil || "").toLowerCase();
 
   if (normalizedPerfil === "cliente") {
-    return "/listasderestaurantes.html";
+    return "/meu-perfil.html";
   }
 
   if (normalizedPerfil === "admin" || normalizedPerfil === "administrador") {

@@ -13,13 +13,17 @@ function ensureDatabase() {
   }
 
   if (!fs.existsSync(DB_FILE)) {
-    fs.writeFileSync(DB_FILE, JSON.stringify({ users: [], contacts: [] }, null, 2));
+    fs.writeFileSync(DB_FILE, JSON.stringify({ users: [], contacts: [], sessions: [] }, null, 2));
   }
 }
 
 function readDatabase() {
   ensureDatabase();
-  return JSON.parse(fs.readFileSync(DB_FILE, "utf8"));
+  const database = JSON.parse(fs.readFileSync(DB_FILE, "utf8"));
+  database.users = Array.isArray(database.users) ? database.users : [];
+  database.contacts = Array.isArray(database.contacts) ? database.contacts : [];
+  database.sessions = Array.isArray(database.sessions) ? database.sessions : [];
+  return database;
 }
 
 function writeDatabase(database) {

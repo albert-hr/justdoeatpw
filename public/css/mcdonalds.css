@@ -81,9 +81,33 @@ body {
     position: relative;
 }
 
+body[data-restaurant="burgerking"] .restaurant-logo-circle {
+    background-color: #F4EBE1;
+    color: #D72300;
+    font-size: 1.4rem;
+}
+
+body[data-restaurant="starbucks"] .restaurant-logo-circle {
+    background-color: #006241;
+    color: #FFFFFF;
+    font-size: 1rem;
+}
+
+body[data-restaurant="outback"] .restaurant-logo-circle {
+    background-color: #F4EBE1;
+    color: #8C1D11;
+    font-size: 1.1rem;
+}
+
+body[data-restaurant="habibs"] .restaurant-logo-circle {
+    background-color: #E60000;
+    color: #FFFFFF;
+    font-size: 1.1rem;
+}
+
 .menu-container {
-    background-color: #D9D9D9;
-    border: 1px solid #000000;
+    background-color: #d1d1d1;
+    border: 1px solid #999;
     border-radius: 40px;
     width: 100%;
     padding: 60px 40px 30px 40px;
@@ -158,9 +182,9 @@ body {
 
 .product-image-box {
     width: 180px;
-    background-color: #FFFFFF;
+    background-color: #e2e2e2;
     border-radius: 15px;
-    border: 1px solid #000000;
+    border: 1px solid #999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -208,6 +232,14 @@ body {
     color: #000;
     margin: 0;
     text-align: left;
+}
+
+.add-cart-button {
+    align-self: flex-start;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-top: 12px;
+    padding: 10px 16px;
 }
 
 .pagination {

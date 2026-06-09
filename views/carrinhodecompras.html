@@ -21,55 +21,38 @@
 
             <nav class="header-nav">
                 <ul>
-                    <li><a href="index.html">In&iacute;cio</a></li>
+                    <li><a href="index.html">Inicio</a></li>
                     <li><a href="listasderestaurantes.html">Restaurantes</a></li>
-                    <li><a href="mcdonalds.html">Comidas</a></li>
-                    <li><a href="mcdonalds.html">Bebidas</a></li>
+                    <li><a href="listasderestaurantes.html?categoria=comidas">Comidas</a></li>
+                    <li><a href="listasderestaurantes.html?categoria=bebidas">Bebidas</a></li>
                 </ul>
             </nav>
 
             <div class="header-right">
-                <a href="contato.html" class="btn-finalizar">Finalizar</a>
+                <a href="checkout-endereco.html" class="btn-finalizar" data-finish-cart>Finalizar</a>
             </div>
         </div>
     </header>
 
     <main>
         <div class="page-return">
-            <a href="mcdonalds.html">&larr; Voltar ao cardápio</a>
+            <a href="listasderestaurantes.html">&larr; Voltar aos restaurantes</a>
         </div>
 
         <h1 class="page-title">Itens em seu carrinho:</h1>
 
         <div class="cart-panel">
-            <div class="cart-item">
-                <div class="item-image">
-                    <img src="../public/images/icons/lanche_icon.png" alt="Combo Mcdonald's" class="object-contain">
-                </div>
-                <div class="item-price-box">
-                    <div class="label">Valor:</div>
-                    <div class="value">R$ 54,90</div>
-                </div>
-            </div>
-
-            <div class="cart-item">
-                <div class="item-image">
-                    <img src="../public/images/icons/bebida_icon.png" alt="Caf&eacute; Gelado">
-                </div>
-                <div class="item-price-box">
-                    <div class="label">Valor:</div>
-                    <div class="value">R$ 25,90</div>
-                </div>
-            </div>
+            <p class="empty-cart-message" data-cart-empty>Seu carrinho esta vazio.</p>
+            <div class="cart-items" data-cart-items></div>
 
             <div class="total-section">
                 <span class="total-label">VALOR TOTAL:</span>
-                <span class="total-value">R$ 80,80</span>
+                <span class="total-value" data-cart-total>R$ 0,00</span>
             </div>
 
             <div class="cart-actions">
-                <button class="btn-cart" type="button">LIMPAR CARRINHO</button>
-                <a href="mcdonalds.html" class="btn-cart btn-cart-link">ADICIONAR MAIS PRODUTOS</a>
+                <button class="btn-cart" type="button" data-clear-cart>LIMPAR CARRINHO</button>
+                <a href="listasderestaurantes.html" class="btn-cart btn-cart-link">ADICIONAR MAIS PRODUTOS</a>
             </div>
         </div>
     </main>
@@ -82,16 +65,16 @@
             <div class="footer-links">
                 <h4>Just Do Eat</h4>
                 <ul>
-                    <li><a href="quemsomos.html">Quem Somos N&oacute;s</a></li>
-                    <li><a href="contato.html">Carreiras</a></li>
-                    <li><a href="contato.html">Institui&ccedil;&otilde;es Parceiras</a></li>
+                    <li><a href="quemsomos.html">Quem Somos Nos</a></li>
+                    <li><a href="carreiras.html">Carreiras</a></li>
+                    <li><a href="parceiros.html">Instituicoes Parceiras</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Descubra</h4>
                 <ul>
                     <li><a href="registro.html">Cadastre Seu Restaurante</a></li>
-                    <li><a href="contato.html">Seja Nosso Entregador!</a></li>
+                    <li><a href="entregador.html">Seja Nosso Entregador!</a></li>
                     <li><a href="quemsomos.html">ODS's</a></li>
                 </ul>
             </div>
@@ -106,5 +89,8 @@
             <p>&copy; Copyright 2025 - Just Do Eat - Todos os direitos reservados Just do Eat S.A.</p>
         </div>
     </footer>
+
+    <script src="../public/js/app.js"></script>
+    <script src="../public/js/cart.js"></script>
 </body>
 </html>

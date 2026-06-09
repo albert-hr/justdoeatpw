@@ -7,7 +7,7 @@ const defaultProducts = [
         description: "Hambúrguer Clássico",
         price: "R$ 25,00",
         category: "Lanches",
-        image: "../public/images/icons/lanche_icon.png",
+        image: "images/icons/lanche_icon.png",
         active: true
     },
     {
@@ -16,7 +16,7 @@ const defaultProducts = [
         description: "Molho de tomate, mussarela e manjericão",
         price: "R$ 35,00",
         category: "Comidas",
-        image: "../public/images/icons/marmita_icon.png",
+        image: "images/icons/marmita_icon.png",
         active: true,
         containImage: true
     },
@@ -26,7 +26,7 @@ const defaultProducts = [
         description: "Refrigerante em Lata",
         price: "R$ 6,00",
         category: "Bebidas",
-        image: "../public/images/icons/bebida_icon.png",
+        image: "images/icons/bebida_icon.png",
         active: true
     },
     {
@@ -35,7 +35,7 @@ const defaultProducts = [
         description: "Açaí 400ml, Leite Condensado, Morango e Leite em Pó",
         price: "R$ 12,00",
         category: "Bebidas",
-        image: "../public/images/icons/bebida_icon.png",
+        image: "images/icons/bebida_icon.png",
         active: true
     }
 ];
@@ -210,7 +210,7 @@ function handleSubmit(event) {
         price: elements.price.value.trim(),
         category: elements.category.value.trim(),
         additional: elements.additional.value.trim(),
-        image: state.uploadedImage || "../public/images/icons/marmita_icon.png",
+        image: state.uploadedImage || "images/icons/marmita_icon.png",
         active: elements.active.value === "true"
     };
 

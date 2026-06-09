@@ -1,5 +1,5 @@
 body.form-page {
-    background-color: #FFFFFF !important;
+    background-color: #3C3C3C !important;
     font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
@@ -15,14 +15,14 @@ body.form-page > footer {
 }
 
 .form-container {
-    background-color: #D9D9D9;
-    color: #000000;
+    background-color: #4A4A4A;
+    color: #FFFFFF;
     padding: 40px;
-    border-radius: 25px; 
+    border-radius: 15px; 
     max-width: 480px; 
     width: 100%;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .form-container h2, .form-container h4 {
@@ -65,8 +65,8 @@ body.form-page > footer {
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
-    color: #E60000;
+    font-weight: normal;
+    color: #D9D9D9;
     font-size: 0.9rem;
 }
 
@@ -74,12 +74,12 @@ body.form-page > footer {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 12px;
-    background-color: #FFFFFF;
-    border: 1px solid #000000;
-    border-radius: 15px; 
+    padding: 15px;
+    background-color: #3C3C3C;
+    border: 1px solid #5A5A5A;
+    border-radius: 8px; 
     font-size: 1rem;
-    color: #000000;
+    color: #FFFFFF;
     box-sizing: border-box;
 }
 
@@ -150,6 +150,27 @@ body.form-page > footer {
 
 .hidden {
     display: none;
+}
+
+.payment-option {
+    display: block;
+    background: #3a3a3a;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding: 14px;
+}
+
+.checkout-success {
+    text-align: center;
+}
+
+.checkout-success .sb {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
 }
 
 

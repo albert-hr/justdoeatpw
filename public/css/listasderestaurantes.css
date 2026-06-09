@@ -55,6 +55,25 @@ body {
     margin: 30px;
 }
 
+.restaurant-search-form {
+    padding: 0 30px 20px 30px;
+}
+
+.restaurant-search-form input {
+    width: 100%;
+    border: 1px solid #999;
+    border-radius: 20px;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: 700;
+}
+
+.restaurants-empty {
+    margin: 20px 30px;
+    font-weight: 900;
+    color: #000;
+}
+
 .app-container > .page-return {
     margin: 20px 30px 0 30px;
 }

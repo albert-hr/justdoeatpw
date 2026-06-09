@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;500;700;900&family=Archivo+Black&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-restaurant="mcdonalds">
     <header class="header-menu">
         <div class="container">
             <a href="index.html">
@@ -20,8 +20,8 @@
                 <ul>
                     <li><a href="index.html">In&iacute;cio</a></li>
                     <li><a href="listasderestaurantes.html">Restaurantes</a></li>
-                    <li><a href="listasderestaurantes.html">Comidas</a></li>
-                    <li><a href="listasderestaurantes.html">Bebidas</a></li>
+                    <li><a href="listasderestaurantes.html?categoria=comidas">Comidas</a></li>
+                    <li><a href="listasderestaurantes.html?categoria=bebidas">Bebidas</a></li>
                 </ul>
             </nav>
             <div class="header-right">
@@ -145,5 +145,7 @@
             <p>&copy; Copyright 2025 - Just Do Eat - Todos os direitos reservados Just do Eat S.A.</p>
         </div>
     </footer>
+    <script src="../public/js/app.js"></script>
+    <script src="../public/js/restaurant-page.js"></script>
 </body>
 </html>
