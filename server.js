@@ -41,18 +41,28 @@ app.get('/api/me', (req, res) => {
 
 // Rota protegida do admin
 app.get('/admin.html', (req, res) => {
-  if (!req.session.usuario || req.session.usuario.perfil !== 'admin') {
+  const perfil = req.session.usuario?.perfil?.toLowerCase();
+  if (!perfil || perfil !== 'admin') {
     return res.redirect('/login.html?erro=acesso-negado');
   }
   res.sendFile(path.join(__dirname, 'views', 'admin.html'));
 });
 
-// Rotas protegidas de restaurante
+// Rota protegida de restaurante
 app.get('/dashboardv2.html', (req, res) => {
-  if (!req.session.usuario || req.session.usuario.perfil !== 'Restaurante') {
+  const perfil = req.session.usuario?.perfil?.toLowerCase();
+  if (!perfil || perfil !== 'restaurante') {
     return res.redirect('/login.html?erro=acesso-negado');
   }
   res.sendFile(path.join(__dirname, 'views', 'dashboardv2.html'));
+});
+
+// Rota protegida de cliente
+app.get('/meu-perfil.html', (req, res) => {
+  if (!req.session.usuario) {
+    return res.redirect('/login.html?erro=login-obrigatorio');
+  }
+  res.sendFile(path.join(__dirname, 'views', 'meu-perfil.html'));
 });
 
 // Servir demais HTMLs
