@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Just Do Eat - Clientes</title><link rel="stylesheet" href="../public/css/style.css"></head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Just Do Eat - Clientes</title><link rel="stylesheet" href="/css/style.css"></head>
 <body>
-    <header><div class="container"><a href="admin.html"><img src="../public/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat" class="logo"></a><nav><ul><li><a href="admin.html">Admin</a></li><li><a href="admin-clientes.html">Clientes</a></li><li><a href="admin-restaurantes.html">Restaurantes</a></li></ul></nav><div class="header-actions"><form action="/api/logout" method="post"><button type="submit" class="btn btn-secondary">Sair</button></form></div></div></header>
+    <header><div class="container"><a href="admin.html"><img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat" class="logo"></a><nav><ul><li><a href="admin.html">Admin</a></li><li><a href="admin-clientes.html">Clientes</a></li><li><a href="admin-restaurantes.html">Restaurantes</a></li></ul></nav><div class="header-actions"><form action="/api/logout" method="post"><button type="submit" class="btn btn-secondary">Sair</button></form></div></div></header>
     <main><div class="container admin-page"><div class="page-return"><a href="admin.html">&larr; Voltar ao admin</a></div><h2>Gerenciamento de clientes</h2><table class="table"><thead><tr><th>Nome</th><th>E-mail</th><th>Status</th><th>Acoes</th></tr></thead><tbody><tr><td>Ana Silva</td><td>ana.silva@email.com</td><td>Ativo</td><td><button class="btn btn-secondary" data-admin-action="Cliente bloqueado temporariamente.">Bloquear</button></td></tr><tr><td>Bruno Lima</td><td>bruno@email.com</td><td>Ativo</td><td><button class="btn btn-secondary" data-admin-action="Cliente atualizado.">Editar</button></td></tr></tbody></table></div></main>
-    <script src="../public/js/app.js"></script><script src="../public/js/dashboard-actions.js"></script>
+    <script src="/js/app.js"></script><script src="/js/dashboard-actions.js"></script>
 </body>
 </html>
+
