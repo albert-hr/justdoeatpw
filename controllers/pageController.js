@@ -26,13 +26,62 @@ const viewFiles = new Set([
   "/dashboard.html",
   "/dashboardv2.html",
   "/admin.html",
+  "/admin-clientes.html",
+  "/admin-pedidos.html",
+  "/admin-restaurantes.html",
+  "/burgerking.html",
   "/contato.html",
+  "/checkout-endereco.html",
+  "/checkout-pagamento.html",
+  "/checkout-sucesso.html",
+  "/config-restaurante.html",
   "/listar.html",
   "/listasderestaurantes.html",
   "/carrinhodecompras.html",
+  "/habibs.html",
   "/mcdonalds.html",
+  "/meu-perfil.html",
+  "/outback.html",
+  "/parceiros.html",
+  "/carreiras.html",
+  "/entregador.html",
+  "/pedidos-restaurante.html",
+  "/relatorios-restaurante.html",
+  "/starbucks.html",
   "/quemsomos.html"
 ]);
+
+const roleHomePages = {
+  cliente: "/meu-perfil.html",
+  restaurante: "/dashboardv2.html",
+  admin: "/admin.html",
+  administrador: "/admin.html"
+};
+
+const protectedPages = {
+  "/admin.html": ["admin", "administrador"],
+  "/admin-clientes.html": ["admin", "administrador"],
+  "/admin-pedidos.html": ["admin", "administrador"],
+  "/admin-restaurantes.html": ["admin", "administrador"],
+  "/carrinhodecompras.html": ["cliente"],
+  "/checkout-endereco.html": ["cliente"],
+  "/checkout-pagamento.html": ["cliente"],
+  "/checkout-sucesso.html": ["cliente"],
+  "/config-restaurante.html": ["restaurante"],
+  "/dashboardv2.html": ["restaurante"],
+  "/listar.html": ["restaurante"],
+  "/meu-perfil.html": ["cliente"],
+  "/pedidos-restaurante.html": ["restaurante"],
+  "/relatorios-restaurante.html": ["restaurante"]
+};
+
+function normalizeRole(user) {
+  return String(user?.perfil || "").toLowerCase();
+}
+
+function getHomeByRole(role) {
+  return roleHomePages[role] || "/dashboard.html";
+}
 
 function serveFile(res, filePath, baseDir) {
   const normalizedPath = path.normalize(filePath);
@@ -63,8 +112,24 @@ function servePage(req, res, pathname) {
     return;
   }
 
-  if (page === "/dashboard.html" && !getCurrentUser(req)) {
+  const allowedRoles = protectedPages[page];
+  const currentUser = getCurrentUser(req);
+
+  if ((page === "/dashboard.html" || allowedRoles) && !currentUser) {
     redirect(res, "/login.html?erro=login-obrigatorio");
+    return;
+  }
+
+  if (allowedRoles) {
+    const role = normalizeRole(currentUser);
+    if (!allowedRoles.includes(role)) {
+      redirect(res, `${getHomeByRole(role)}?erro=acesso-negado`);
+      return;
+    }
+  }
+
+  if (page === "/dashboard.html" && currentUser) {
+    redirect(res, getHomeByRole(normalizeRole(currentUser)));
     return;
   }
 
@@ -77,15 +142,19 @@ function serveAsset(res, pathname) {
     return;
   }
 
-  const isPublicAsset = pathname.startsWith("/public/") || pathname.startsWith("/css/") || pathname.startsWith("/js/") || pathname.startsWith("/images/");
+  if (pathname.startsWith("/public/")) {
+    serveFile(res, path.join(ROOT_DIR, pathname), PUBLIC_DIR);
+    return;
+  }
+
+  const isPublicAsset = pathname.startsWith("/css/") || pathname.startsWith("/js/") || pathname.startsWith("/images/");
 
   if (!isPublicAsset) {
     send(res, 404, "Arquivo nao encontrado.", { "Content-Type": "text/plain; charset=utf-8" });
     return;
   }
 
-  const publicPath = pathname.startsWith("/public/") ? pathname.slice("/public/".length) : pathname;
-  serveFile(res, path.join(PUBLIC_DIR, publicPath), PUBLIC_DIR);
+  serveFile(res, path.join(PUBLIC_DIR, pathname), PUBLIC_DIR);
 }
 
 module.exports = {
