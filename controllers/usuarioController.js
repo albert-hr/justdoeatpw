@@ -57,7 +57,6 @@ async function login(req, res) {
       perfil: usuario.perfil
     };
 
-    // ← MUDANÇA AQUI: normaliza o perfil antes de comparar
     const perfilNorm = usuario.perfil?.toLowerCase();
     const redirectTo = perfilNorm === 'restaurante'
       ? '/dashboardv2.html'
