@@ -47,8 +47,8 @@ app.get('/api/me', (req, res) => {
 });
 
 // Servir HTMLs da pasta views
-app.get('/*.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', req.params[0] + '.html'));
+app.get('/:page.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', req.params.page + '.html'));
 });
 
 // Página inicial
