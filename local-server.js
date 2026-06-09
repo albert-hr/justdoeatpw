@@ -1,42 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Do Eat - Meu Perfil</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/dashboardv2.css">
-</head>
-<body>
-    <header class="header-dashboard">
-        <div class="container">
-            <a href="index.html"><img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat" class="logo-pequena"></a>
-            <nav><ul><li><a href="index.html">Inicio</a></li><li><a href="listasderestaurantes.html">Restaurantes</a></li><li><a href="listasderestaurantes.html?categoria=comidas">Comidas</a></li><li><a href="listasderestaurantes.html?categoria=bebidas">Bebidas</a></li></ul></nav>
-            <div class="header-actions"><form action="/api/logout" method="post"><button type="submit" class="btn btn-secondary">Sair</button></form></div>
-        </div>
-    </header>
-    <div class="page-background-wrapper">
-        <div class="page-logo-center"><img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat"><h1>Meu Perfil</h1></div>
-        <main class="container">
-            <div class="dashboard-container">
-                <aside class="sidebar">
-                    <h2>Cliente</h2>
-                    <ul class="sidebar-menu">
-                        <li><a href="meu-perfil.html" class="active">Historico</a></li>
-                        <li><a href="listasderestaurantes.html">Restaurantes</a></li>
-                        <li><a href="carrinhodecompras.html">Carrinho</a></li>
-                    </ul>
-                </aside>
-                <section class="main-content">
-                    <h2>Ola, <span data-profile-name>Cliente</span></h2>
-                    <p data-profile-empty hidden>Voce ainda nao realizou pedidos.</p>
-                    <div class="widgets-grid" data-profile-orders></div>
-                </section>
-            </div>
-        </main>
-    </div>
-    <script src="/js/app.js"></script>
-    <script src="/js/profile.js"></script>
-</body>
-</html>
+const http = require("http");
+const { handleRequest } = require("./routes/router");
 
+const PORT = Number(process.env.PORT) || 3000;
+
+http.createServer(handleRequest).listen(PORT, () => {
+  console.log(`Just Do Eat rodando em http://localhost:${PORT}`);
+});
