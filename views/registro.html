@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Cadastro</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="form-page">
+    <header>
+        <div class="container">
+            <a href="index.html"><img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="listasderestaurantes.html">Restaurantes</a></li>
+                    <li><a href="mcdonalds.html">Comidas</a></li>
+                    <li><a href="mcdonalds.html">Bebidas</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <form action="#" method="get" class="search-form">
+                    <input type="search" name="q" placeholder="Buscar">
+                </form>
+                <a href="login.html" class="btn btn-secondary">Logar</a>
+                <a href="registro.html" class="btn btn-primary">Registre-se</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <form action="/api/register" method="post" id="cadastro-form" novalidate>
+                <input type="hidden" name="acao" value="registrar">
+                <img src="/images/icons/logo_justdoeat.png" alt="Logo">
+                <h2>Cadastro</h2>
+
+                <div class="form-group">
+                    <label for="perfil">Tipo de Usuário</label>
+                    <select name="perfil" id="perfil" required>
+                        <option value="Cliente">Sou um Cliente</option>
+                        <option value="Restaurante">Sou um Restaurante</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nome">Nome completo / Nome do Restaurante</label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" title="Informe um e-mail válido com @." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="senha" aria-describedby="password-hint senha-error" required>
+                    <small class="field-hint" id="password-hint">A senha deve ter pelo menos 6 caracteres.</small>
+                    <small class="field-error" id="senha-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirma_senha">Confirmar Senha</label>
+                    <input type="password" name="confirma_senha" id="confirma_senha" aria-describedby="confirma-senha-error" required>
+                    <small class="field-error" id="confirma-senha-error"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone" id="telefone" placeholder="(99) 99999-9999" pattern="^\([0-9]{2}\) [0-9]{5}-[0-9]{4}$" maxlength="15" inputmode="numeric" aria-describedby="telefone-error" title="Use o formato (99) 99999-9999." required>
+                    <small class="field-error" id="telefone-error"></small>
+                </div>
+
+                <div id="restaurante-fields" class="hidden">
+                    <div class="form-group">
+                        <label for="cpf_cnpj">CPF / CNPJ</label>
+                        <input type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="123.456.789-00 ou 12.345.678/0001-90" pattern="^([0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}|[0-9]{2}\.[0-9]{3}\.[0-9]{3}/[0-9]{4}-[0-9]{2})$" maxlength="18" inputmode="numeric" title="Use CPF no formato 123.456.789-00 ou CNPJ no formato 12.345.678/0001-90.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" id="cep" placeholder="12345-678" pattern="^[0-9]{5}-[0-9]{3}$" maxlength="9" inputmode="numeric" title="Use o formato 12345-678.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" name="endereco" id="endereco">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numero">Número</label>
+                        <input type="text" name="numero" id="numero">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" name="cidade" id="cidade">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario_abertura">Horário de Abertura</label>
+                        <input type="time" name="horario_abertura" id="horario_abertura">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario_fechamento">Horário de Fechamento</label>
+                        <input type="time" name="horario_fechamento" id="horario_fechamento">
+                    </div>
+                </div>
+
+                <button type="submit" class="sb btn-primary">Registrar</button>
+                <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+                <p><a href="index.html">Voltar ao início</a></p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat">
+            </div>
+            <div class="footer-links">
+                <h4>Just Do Eat</h4>
+                <ul>
+                    <li><a href="quemsomos.html">Quem Somos Nós</a></li>
+                    <li><a href="contato.html">Carreiras</a></li>
+                    <li><a href="contato.html">Instituições Parceiras</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Descubra</h4>
+                <ul>
+                    <li><a href="registro.html">Cadastre Seu Restaurante</a></li>
+                    <li><a href="contato.html">Seja Nosso Entregador!</a></li>
+                    <li><a href="quemsomos.html">ODS's</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Social</h4>
+                <a href="https://www.facebook.com"><img src="/images/icons/facebook_icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="/images/icons/instagram_icon.png" alt="Instagram"></a>
+                <a href="https://www.whatsapp.com"><img src="/images/icons/whatsapp_icon.png" alt="WhatsApp"></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; Copyright 2025 - Just Do Eat - Todos os direitos reservados Just do Eat S.A.</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/registro.js"></script>
+</body>
+</html>
+
