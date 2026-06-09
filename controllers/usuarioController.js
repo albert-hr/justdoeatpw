@@ -19,7 +19,13 @@ async function registrar(req, res) {
 
     req.session.usuario = resultado.rows[0];
 
-    const redirectTo = perfil === 'Restaurante' ? '/dashboardv2.html' : '/meu-perfil.html';
+    const perfilNorm = resultado.rows[0].perfil?.toLowerCase();
+    const redirectTo = perfilNorm === 'restaurante'
+      ? '/dashboardv2.html'
+      : perfilNorm === 'admin'
+      ? '/admin.html'
+      : '/meu-perfil.html';
+
     return res.status(201).json({ redirectTo, user: resultado.rows[0] });
   } catch (err) {
     console.error(err);
@@ -51,12 +57,13 @@ async function login(req, res) {
       perfil: usuario.perfil
     };
 
+    // ← MUDANÇA AQUI: normaliza o perfil antes de comparar
     const perfilNorm = usuario.perfil?.toLowerCase();
-const redirectTo = perfilNorm === 'restaurante'
-  ? '/dashboardv2.html'
-  : perfilNorm === 'admin'
-  ? '/admin.html'
-  : '/meu-perfil.html';
+    const redirectTo = perfilNorm === 'restaurante'
+      ? '/dashboardv2.html'
+      : perfilNorm === 'admin'
+      ? '/admin.html'
+      : '/meu-perfil.html';
 
     return res.status(200).json({ redirectTo, user: req.session.usuario });
   } catch (err) {
