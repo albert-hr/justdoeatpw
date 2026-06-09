@@ -2,7 +2,6 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const app = express();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,6 +44,23 @@ app.get('/api/me', (req, res) => {
     return res.status(401).json({ erro: 'Não autenticado' });
   }
   res.json({ user: req.session.usuario });
+});
+
+// ROTA TEMPORÁRIA - remover após usar
+app.get('/setup-admin', async (req, res) => {
+  try {
+    const bcrypt = require('bcryptjs');
+    const pool = require('./utils/db');
+    const hash = await bcrypt.hash('admin123', 10);
+    await pool.query('DELETE FROM usuarios WHERE email = $1', ['admin@justdoeat.com']);
+    await pool.query(
+      'INSERT INTO usuarios (nome, email, senha_hash, perfil) VALUES ($1, $2, $3, $4)',
+      ['Administrador', 'admin@justdoeat.com', hash, 'admin']
+    );
+    res.send('Admin criado com sucesso! Hash: ' + hash);
+  } catch (err) {
+    res.send('Erro: ' + err.message);
+  }
 });
 
 // Rota protegida do admin
