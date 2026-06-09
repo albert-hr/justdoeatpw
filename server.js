@@ -17,7 +17,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: process.env.NODE_ENV === 'production',
+    secure: false,        // ← CORRIGIDO: era true, isso bloqueava o cookie no redirect
     httpOnly: true,
     maxAge: 7 * 24 * 60 * 60 * 1000
   }
@@ -29,12 +29,12 @@ app.post('/api/register', registrar);
 app.post('/api/login', login);
 
 app.post('/api/logout', (req, res) => {
-  req.session.destroy(() => res.redirect('/login.html'));
+  req.session.destroy(() => res.json({ ok: true }));
 });
 
 app.get('/api/me', (req, res) => {
-  if (!req.session.usuario) {
-    return res.status(401).json({ erro: 'Não autenticado' });
+  if (!req.session || !req.session.usuario) {
+    return res.status(401).json({ error: 'Não autenticado' });
   }
   res.json({ user: req.session.usuario });
 });
@@ -57,9 +57,9 @@ app.get('/dashboardv2.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'dashboardv2.html'));
 });
 
-// Rota protegida de cliente
+// Rota protegida de cliente  ← ESTAVA FALTANDO
 app.get('/meu-perfil.html', (req, res) => {
-  if (!req.session.usuario) {
+  if (!req.session || !req.session.usuario) {
     return res.redirect('/login.html?erro=login-obrigatorio');
   }
   res.sendFile(path.join(__dirname, 'views', 'meu-perfil.html'));
