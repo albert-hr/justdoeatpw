@@ -70,7 +70,4 @@
     style="padding-right: 15;" 
     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" 
 />
-<img 
-    align="center" 
-    alt="PHP" 
-    title="PHP"
+
