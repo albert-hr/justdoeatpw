@@ -56,4 +56,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
-module.exports = app;
+const http = require('http');
+const server = http.createServer(app);
+module.exports = (req, res) => app(req, res);
