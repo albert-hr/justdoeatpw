@@ -55,14 +55,6 @@ app.get('/dashboardv2.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'dashboardv2.html'));
 });
 
-// Rota protegida de cliente
-app.get('/meu-perfil.html', (req, res) => {
-  if (!req.session.usuario) {
-    return res.redirect('/login.html?erro=login-obrigatorio');
-  }
-  res.sendFile(path.join(__dirname, 'views', 'meu-perfil.html'));
-});
-
 // Servir demais HTMLs
 app.get('/:page.html', (req, res) => {
   const file = path.join(__dirname, 'views', req.params.page + '.html');
