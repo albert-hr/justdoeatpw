@@ -53,11 +53,14 @@ async function login(req, res) {
     req.session.usuario = {
       id: usuario.id,
       nome: usuario.nome,
-      email: usuario.email
+      email: usuario.email,
+      perfil: usuario.perfil
     };
 
+    const redirectTo = usuario.perfil === 'Restaurante' ? '/dashboardv2.html' : '/meu-perfil.html';
+
     return res.status(200).json({
-      redirectTo: '/meu-perfil.html',
+      redirectTo,
       user: req.session.usuario
     });
   } catch (err) {
@@ -65,5 +68,4 @@ async function login(req, res) {
     return res.status(500).json({ error: 'Erro ao fazer login' });
   }
 }
-
 module.exports = { registrar, login };
