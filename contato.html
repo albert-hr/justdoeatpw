@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Do Eat - Quem Somos</title>
+    <title>Just Do Eat - Admin</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,39 +22,30 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <form action="#" method="get" class="search-form">
-                    <input type="search" name="q" placeholder="🔍">
+                <a href="admin.html" class="btn btn-primary">Admin</a>
+                <form action="/api/logout" method="post">
+                    <button type="submit" class="btn btn-secondary">Sair</button>
                 </form>
-                <a href="login.html" class="btn btn-secondary">Logar</a>
-                <a href="registro.html" class="btn btn-primary">Registre-se</a>
             </div>
         </div>
     </header>
 
     <main>
-        <div class="about-us-container">
-            <div class="container content-grid">
-                <div class="mission-section">
-                    <h1>Qual a Nossa Missão?</h1>
-                    <p>
-                        Atender o máximo de pessoas que buscam alimentos de qualidade, com a praticidade de um clique, atendendo também uma parcela vulnerável da sociedade.
-                    </p>
-                    <div class="slogan-section">
-                        <img src="/images/icons/logo_justdoeat.png" alt="Logo Just do Eat">
-                        <h2>Quando quiser, onde estiver.</h2>
-                        <div class="ods-section">
-                            <h2>Quais ODS's Atendemos?</h2>
-                            <ul>
-                                <li>2 – Fome Zero;</li>
-                                <li>3 – Boa Saúde e Bem-estar;</li>
-                                <li>9 – Industria, inovação e infraestrutura.</li>
-                            </ul>
-                            <div class="objetivos-section">
-                                <img src="/images/icons/objetivos_port 1.png" alt="Objetivos de Desenvolvimento">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="container dashboard">
+            <div class="page-return">
+                <a href="index.html">&larr; Voltar ao início</a>
+            </div>
+
+            <h1>Administração</h1>
+            <p>Gerencie os principais dados da plataforma.</p>
+
+            <div class="dashboard-menu">
+                <h3>Menu do Administrador</h3>
+                <ul>
+                    <li><a href="admin-pedidos.html">Gerenciar Pedidos</a></li>
+                    <li><a href="admin-clientes.html">Gerenciar Clientes</a></li>
+                    <li><a href="admin-restaurantes.html">Gerenciar Restaurantes</a></li>
+                </ul>
             </div>
         </div>
     </main>
@@ -91,6 +82,7 @@
             <p>&copy; Copyright 2025 - Just Do Eat - Todos os direitos reservados Just do Eat S.A.</p>
         </div>
     </footer>
+    <script src="/js/app.js"></script>
 </body>
 </html>
 

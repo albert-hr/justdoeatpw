@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Listar Produtos</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/listar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;500;700&family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header-listar">
+        <div class="container">
+            <a href="index.html">
+                <img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat" class="logo-pequena">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="dashboard.html">Restaurantes</a></li>
+                    <li><a href="listar.html?categoria=Comidas" data-category-filter="Comidas">Comidas</a></li>
+                    <li><a href="listar.html?categoria=Bebidas" data-category-filter="Bebidas">Bebidas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container page-return">
+            <a href="dashboardv2.html">&larr; Voltar ao dashboard</a>
+        </div>
+
+        <div class="page-logo-center">
+            <img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat">
+            <h1>Just do Eat</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="panel left-panel">
+                <div class="search-add-row">
+                    <input type="search" id="product-search" placeholder="Buscar produto">
+                    <button type="button" class="btn-add" id="add-product">ADICIONAR NOVO PRODUTO</button>
+                </div>
+
+                <div class="list-header-titles">
+                    <div class="left-titles">
+                        <span>LISTA</span>
+                        <span>PRODUTO</span>
+                    </div>
+                    <button type="button" class="btn-filter" id="filter-products">FILTRAR</button>
+                </div>
+
+                <div class="products-list" id="products-list"></div>
+            </div>
+
+            <div class="product-modal hidden" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="form-title">
+            <div class="panel right-panel">
+                <h2 id="form-title">CADASTRO / EDIÇÃO DE PRODUTOS</h2>
+
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+                    <input type="hidden" id="product-active" value="true">
+
+                    <div class="form-group-custom">
+                        <label for="product-name">Nome do Produto:</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label for="product-description">Descrição:</label>
+                        <input type="text" id="product-description" required>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label for="product-price">Preço:</label>
+                        <input type="text" id="product-price" placeholder="R$ 0,00" inputmode="numeric" required>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label for="product-category">Categoria:</label>
+                        <input type="text" id="product-category" required>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label>Imagem / Status:</label>
+                        <div class="upload-row">
+                            <button type="button" class="btn-upload" id="upload-image">CARREGAR</button>
+                            <input type="file" id="product-image" class="image-file-input" accept="image/png,image/jpeg,image/webp" aria-describedby="image-hint">
+                            <button type="button" class="toggle-container" id="status-toggle" aria-label="Alternar status do produto" aria-pressed="true">
+                                <span class="toggle-circle"></span>
+                            </button>
+                        </div>
+                        <small class="upload-hint" id="image-hint">Formatos aceitos: PNG, JPG ou WEBP. Tamanho máximo recomendado: 2 MB.</small>
+                        <p class="status-text" id="status-text">Status: Ativo</p>
+                    </div>
+
+                    <div class="form-group-custom">
+                        <label for="product-additional">Opções Adicionais:</label>
+                        <input type="text" id="product-additional">
+                    </div>
+
+                    <div class="panel-actions">
+                        <button type="button" class="btn-panel btn-cancel" id="cancel-product">CANCELAR</button>
+                        <button type="button" class="btn-panel btn-delete" id="delete-product" disabled>REMOVER</button>
+                        <button type="submit" class="btn-panel btn-save">SALVAR PRODUTO</button>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="/images/icons/logo_justdoeat.png" alt="Logo Just Do Eat">
+            </div>
+            <div class="footer-links">
+                <h4>Just Do Eat</h4>
+                <ul>
+                    <li><a href="quemsomos.html">Quem Somos Nós</a></li>
+                    <li><a href="contato.html">Carreiras</a></li>
+                    <li><a href="contato.html">Instituições Parceiras</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Descubra</h4>
+                <ul>
+                    <li><a href="registro.html">Cadastre Seu Restaurante</a></li>
+                    <li><a href="contato.html">Seja Nosso Entregador!</a></li>
+                    <li><a href="quemsomos.html">ODS's</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Social</h4>
+                <a href="https://www.facebook.com"><img src="/images/icons/facebook_icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com"><img src="/images/icons/instagram_icon.png" alt="Instagram"></a>
+                <a href="https://www.whatsapp.com"><img src="/images/icons/whatsapp_icon.png" alt="WhatsApp"></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; Copyright 2025 - Just Do Eat - Todos os direitos reservados Just do Eat S.A.</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/listar.js"></script>
+</body>
+</html>
+
