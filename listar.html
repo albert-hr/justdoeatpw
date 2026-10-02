@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Cardápio</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+    <link rel="stylesheet" href="/css/listar.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker"><span data-user-name>Painel do restaurante</span></p>
+                <h1>Cadastro / edição de produtos</h1>
+            </div>
+            <button type="button" class="btn btn-primary" data-add-product>Adicionar novo produto</button>
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-restaurante}}
+            <section class="panel-content">
+                <div data-menu-admin>
+                    <div class="menu-admin-toolbar">
+                        <label class="sr-only" for="product-search">Buscar produto</label>
+                        <input type="search" id="product-search" placeholder="Buscar produto" data-product-search>
+                        <div class="chips" role="group" aria-label="Filtrar produtos">
+                            <button type="button" class="chip" aria-pressed="true" data-filter="todos">Todos</button>
+                            <button type="button" class="chip" aria-pressed="false" data-filter="ativos">Ativos</button>
+                            <button type="button" class="chip" aria-pressed="false" data-filter="inativos">Inativos</button>
+                        </div>
+                    </div>
+                    <p class="results-count" data-product-count></p>
+                    <div class="product-admin-list" data-product-list></div>
+                    <div class="empty-state" data-product-empty hidden>
+                        <h3>Nenhum produto por aqui</h3>
+                        <p>Adicione o primeiro item do seu cardápio.</p>
+                        <button type="button" class="btn btn-dark" data-add-product>Adicionar novo produto</button>
+                    </div>
+                    <p class="field-hint muted">Por enquanto, as alterações do cardápio ficam salvas neste navegador.</p>
+                </div>
+
+                <dialog class="product-dialog" data-product-dialog aria-labelledby="product-dialog-title">
+                    <form class="panel-form panel-form-full" method="dialog" data-product-form novalidate>
+                        <h2 id="product-dialog-title">Novo produto</h2>
+                        <input type="hidden" name="id">
+                        <div class="field">
+                            <label for="product-name">Nome do produto</label>
+                            <input id="product-name" name="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="product-description">Descrição</label>
+                            <input id="product-description" name="description" required>
+                        </div>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="product-price">Preço</label>
+                                <input id="product-price" name="price" inputmode="numeric" placeholder="R$ 0,00" required>
+                            </div>
+                            <div class="field">
+                                <label for="product-category">Categoria</label>
+                                <input id="product-category" name="category" list="product-categories" required>
+                                <datalist id="product-categories"></datalist>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="product-additional">Opções adicionais <small>(opcional)</small></label>
+                            <input id="product-additional" name="additional">
+                        </div>
+                        <div class="field">
+                            <label for="product-image">Imagem <small>(PNG, JPG ou WEBP até 2 MB)</small></label>
+                            <input id="product-image" type="file" accept="image/png,image/jpeg,image/webp">
+                        </div>
+                        <label class="switch"><input type="checkbox" name="active" checked> Produto ativo</label>
+
+                        <div class="dialog-actions">
+                            <button type="button" class="btn-danger-text" data-delete-product hidden>Remover</button>
+                            <div>
+                                <button type="button" class="btn btn-secondary" data-cancel-product>Cancelar</button>
+                                <button type="submit" class="btn btn-primary" value="save">Salvar produto</button>
+                            </div>
+                        </div>
+                    </form>
+                </dialog>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/listar.js"></script>
+</body>
+</html>

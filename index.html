@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/listasderestaurantes.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo">
+    <section class="hero">
+        <div class="container hero-grid">
+            <div>
+                <h1>Quando quiser, onde estiver.</h1>
+                <p class="hero-text">Peça dos restaurantes da sua região. A cada pedido, uma parte vai para instituições parceiras pela Parcela Amiga.</p>
+                <form class="hero-search" action="/restaurantes" method="get" role="search">
+                    <label class="sr-only" for="hero-search-input">O que você quer comer?</label>
+                    <input id="hero-search-input" type="search" name="q" placeholder="Hambúrguer, marmita, café...">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+                <p class="hero-hint">Ou veja <a href="/restaurantes">todos os restaurantes</a>.</p>
+            </div>
+
+            <nav class="category-tiles" aria-label="Categorias">
+                <a class="category-tile" href="/restaurantes?categoria=comidas&amp;q=lanche">
+                    <img src="/images/icons/lanche_icon.png" alt="" width="170" height="170">
+                    <span>Lanches</span>
+                </a>
+                <a class="category-tile" href="/restaurantes?categoria=comidas&amp;q=marmita">
+                    <img src="/images/icons/marmita_icon.png" alt="" width="170" height="170">
+                    <span>Marmitas</span>
+                </a>
+                <a class="category-tile" href="/restaurantes?categoria=bebidas">
+                    <img src="/images/icons/bebida_icon.png" alt="" width="170" height="170">
+                    <span>Bebidas</span>
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <section class="showcase" aria-labelledby="vitrine-titulo">
+        <div class="container">
+            <div class="section-row">
+                <h2 class="section-title" id="vitrine-titulo">Mais bem avaliados</h2>
+                <a href="/restaurantes">Ver todos</a>
+            </div>
+            <div class="restaurant-grid" data-restaurant-list data-destaques="4"></div>
+        </div>
+    </section>
+
+    <section class="solidarity-band" aria-labelledby="contribuir-titulo">
+        <div class="container solidarity-grid">
+            <div>
+                <h2 id="contribuir-titulo">Gostaria de contribuir conosco?</h2>
+                <p>Com a Parcela Amiga, {{parcelaPercent}}% do valor de cada pedido vira alimento para instituições parceiras, o ano inteiro, não só em datas comemorativas.</p>
+                <div class="solidarity-actions">
+                    <a href="/quem-somos" class="btn btn-primary btn-lg">Saiba mais</a>
+                    <a href="/cadastro?perfil=Restaurante" class="btn btn-secondary btn-lg">Cadastre seu restaurante</a>
+                </div>
+            </div>
+            <img src="/images/icons/colaboradores.png" alt="Colaboradores do Just Do Eat" width="830" height="553">
+        </div>
+    </section>
+</main>
+
+{{> footer}}
+<script src="/js/restaurants-list.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Restaurantes</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/listasderestaurantes.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="page page-grey">
+    <div class="container">
+        <div class="page-head">
+            <h1 data-list-title>Restaurantes</h1>
+            <p data-list-description>Os restaurantes mais pedidos da região, com entrega até a sua porta.</p>
+        </div>
+
+        <div class="list-toolbar">
+            <nav class="chips" aria-label="Filtrar por categoria">
+                <a class="chip" href="/restaurantes" data-category-chip="">Todos</a>
+                <a class="chip" href="/restaurantes?categoria=comidas" data-category-chip="comidas">Comidas</a>
+                <a class="chip" href="/restaurantes?categoria=bebidas" data-category-chip="bebidas">Bebidas</a>
+            </nav>
+            <form class="list-search" action="/restaurantes" method="get" role="search" data-restaurant-search-form>
+                <label class="sr-only" for="restaurant-search">Buscar restaurante ou prato</label>
+                <input id="restaurant-search" type="search" name="q" placeholder="Buscar restaurante ou prato" data-restaurant-search>
+            </form>
+        </div>
+
+        <p class="results-count" data-results-count aria-live="polite"></p>
+        <div class="restaurant-grid" data-restaurant-list></div>
+
+        <div class="empty-state" data-restaurants-empty hidden>
+            <h2>Nada encontrado por aqui</h2>
+            <p>Tente outro nome de prato ou restaurante, ou veja todas as opções.</p>
+            <a href="/restaurantes" class="btn btn-dark">Ver todos os restaurantes</a>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/restaurants-list.js"></script>
+</body>
+</html>

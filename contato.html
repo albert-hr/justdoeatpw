@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Contato</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="form-page">
+    <div class="container">
+        <form class="form-card" action="/api/contact" method="post">
+            <img src="/images/icons/logo-justdoeat-recortado.png" alt="" class="form-card-logo" width="84" height="84">
+            <h1>Contato</h1>
+            <p class="form-intro">Dúvidas, sugestões ou problemas com um pedido? Respondemos por e-mail.</p>
+
+            <div class="field">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" autocomplete="name" required>
+            </div>
+            <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+                <label for="mensagem">Mensagem</label>
+                <textarea name="mensagem" id="mensagem" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+        </form>
+    </div>
+</main>
+
+{{> footer-compacto}}
+
+</body>
+</html>

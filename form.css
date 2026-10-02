@@ -1,0 +1,107 @@
+/* Telas de formulário escuras: login, cadastro, contato e checkout */
+
+/* ---------- Telas de formulário escuras (login, cadastro, contato, checkout) ---------- */
+.form-page { background: var(--form-bg); padding: 48px 0 72px; color: var(--white); }
+.form-page .checkout-steps { max-width: 760px; margin-left: auto; margin-right: auto; color: var(--white); }
+.form-page .step-done .step-num { background: var(--white); color: var(--form-bg); border-color: var(--white); }
+.form-card {
+    width: 100%; max-width: 480px; margin: 0 auto;
+    background: var(--form-card); border-radius: 18px; padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.form-card-wide { max-width: 640px; }
+.form-card-logo { width: 84px; height: 84px; margin: 0 auto 14px; filter: invert(1); }
+.form-card h1 { color: var(--white); text-align: center; font-size: 1.875rem; margin-bottom: 6px; }
+.form-card .form-intro { text-align: center; color: var(--form-label); margin-bottom: 28px; }
+.form-card h2 { color: var(--white); font-size: 1.25rem; margin: 28px 0 14px; }
+.form-card a { color: var(--white); font-weight: 700; text-underline-offset: 3px; }
+
+.field { margin-bottom: 18px; }
+.field label, .field .label { display: block; margin-bottom: 7px; color: var(--form-label); font-size: 0.9375rem; font-weight: 500; }
+.field input, .field select, .field textarea {
+    width: 100%; padding: 13px 15px;
+    background: var(--form-bg); color: var(--white);
+    border: 2px solid var(--form-line); border-radius: var(--radius-sm);
+    font: 500 1rem var(--font-body);
+}
+.field input::placeholder, .field textarea::placeholder { color: #9C9C9C; }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--white); outline: none; }
+.field textarea { min-height: 130px; resize: vertical; }
+.field input[aria-invalid="true"] { border-color: #FF9C9C; }
+.field-hint { display: block; margin-top: 6px; font-size: 0.8125rem; color: #CFCFCF; }
+.field-error { display: block; margin-top: 6px; font-size: 0.8125rem; font-weight: 700; color: #FFB4B4; min-height: 1.1em; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 14px; }
+.field-row-3 { grid-template-columns: 1.3fr 0.7fr; }
+.form-card .btn-primary { width: 100%; margin-top: 8px; }
+.form-foot { margin: 24px 0 0; text-align: center; color: var(--form-label); }
+.form-foot a { margin-left: 4px; }
+.form-links { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 22px; font-size: 0.9375rem; }
+
+/* Escolha "cliente" ou "restaurante" no cadastro */
+.role-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 0 0 22px; padding: 0; border: 0; }
+.role-switch legend { margin-bottom: 8px; color: var(--form-label); font-weight: 500; font-size: 0.9375rem; }
+.role-option { position: relative; }
+.role-option input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.role-option span {
+    display: block; height: 100%; padding: 14px; border-radius: var(--radius-sm);
+    border: 2px solid var(--form-line); background: var(--form-bg);
+}
+.role-option strong { display: block; color: var(--white); }
+.role-option small { color: #CFCFCF; }
+.role-option input:checked + span { border-color: var(--red); background: #5A2A2A; }
+.role-option input:focus-visible + span { outline: 3px solid var(--white); outline-offset: 2px; }
+
+.demo-accounts { margin-top: 26px; border-top: 1px solid var(--form-line); padding-top: 18px; }
+.demo-accounts summary { cursor: pointer; font-weight: 700; color: var(--form-label); }
+.demo-accounts ul { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.demo-accounts button {
+    width: 100%; text-align: left; cursor: pointer;
+    background: var(--form-bg); color: var(--white); border: 1px solid var(--form-line); border-radius: var(--radius-sm);
+    padding: 10px 12px; font: 500 0.9375rem var(--font-body);
+}
+.demo-accounts button:hover { border-color: var(--white); }
+.demo-accounts button small { display: block; color: #BDBDBD; }
+
+/* Pagamento */
+.payment-options { display: grid; gap: 10px; margin: 0 0 8px; padding: 0; border: 0; }
+.payment-option { position: relative; }
+.payment-option input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.payment-option span {
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    padding: 15px 16px; border-radius: var(--radius-sm); border: 2px solid var(--form-line); background: var(--form-bg);
+    font-weight: 700;
+}
+.payment-option small { font-weight: 500; color: #CFCFCF; }
+.payment-option input:checked + span { border-color: var(--red); background: #5A2A2A; }
+.payment-option input:focus-visible + span { outline: 3px solid var(--white); outline-offset: 2px; }
+
+.dark-summary { background: var(--form-bg); border-radius: var(--radius-md); padding: 18px 20px; margin-bottom: 8px; }
+.dark-summary h2 { margin-top: 0; font-size: 1.0625rem; font-family: var(--font-body); font-weight: 700; display: flex; justify-content: space-between; }
+.dark-summary h2 a { font-size: 0.875rem; font-weight: 500; }
+.dark-summary ul { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 6px; color: var(--form-label); }
+.dark-summary li { display: flex; justify-content: space-between; gap: 12px; }
+.dark-summary dl { margin: 0; display: grid; grid-template-columns: 1fr auto; gap: 6px 0; border-top: 1px solid var(--form-line); padding-top: 12px; }
+.dark-summary dd { padding-left: 12px; }
+.dark-summary dt { color: var(--form-label); }
+.dark-summary dd { margin: 0; text-align: right; }
+.dark-summary .summary-total { font-family: var(--font-display); font-size: 1.125rem; color: var(--white); }
+.dark-summary address { font-style: normal; color: var(--form-label); }
+.form-card .parcela-note { background: #5A2A2A; color: #FFDADA; margin-top: 16px; }
+.form-card .parcela-note strong { color: var(--white); }
+.form-card .parcela-note img { filter: invert(1); }
+
+.success-mark {
+    width: 84px; height: 84px; margin: 0 auto 16px; border-radius: 50%;
+    background: var(--red); display: grid; place-items: center;
+    animation: pop 0.45s cubic-bezier(.2,1.4,.4,1);
+}
+@keyframes pop { from { transform: scale(0.4); opacity: 0; } }
+.success-actions { display: grid; gap: 10px; margin-top: 24px; }
+.success-actions .btn-secondary { background: transparent; color: var(--white); border-color: var(--form-line); }
+
+/* Responsivo */
+@media (max-width: 720px) {
+    .form-card { padding: 28px 20px; border-radius: 14px; }
+    .form-page { padding: 24px 0 48px; }
+    .field-row { grid-template-columns: 1fr; }
+}

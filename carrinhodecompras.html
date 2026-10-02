@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Carrinho de Compras</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/carrinhodecompras.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="page page-grey" data-cart-page data-checkout-step="1" data-parcela-percent="{{parcelaPercent}}">
+    <div class="container">
+        {{> etapas-pedido}}
+
+        <div class="page-head">
+            <h1>Itens em seu carrinho</h1>
+        </div>
+
+        <div class="empty-state" data-cart-empty hidden>
+            <h2>Seu carrinho está vazio</h2>
+            <p>Escolha um restaurante e adicione os itens que quiser.</p>
+            <a href="/restaurantes" class="btn btn-primary">Ver restaurantes</a>
+        </div>
+
+        <div class="cart-layout" data-cart-filled hidden>
+            <section class="cart-panel" aria-labelledby="cart-restaurant-name">
+                <div class="cart-restaurant">
+                    <h2 id="cart-restaurant-name" data-cart-restaurant>Restaurante</h2>
+                    <a href="/restaurantes" data-cart-restaurant-link class="btn-link">Adicionar mais itens</a>
+                </div>
+                <ul class="cart-items" data-cart-items></ul>
+                <div class="cart-panel-foot">
+                    <button type="button" class="btn-link" data-clear-cart>Limpar carrinho</button>
+                    <a href="/restaurantes" class="btn-link">Escolher outro restaurante</a>
+                </div>
+            </section>
+
+            <aside class="summary" aria-labelledby="summary-title">
+                <h2 id="summary-title">Resumo</h2>
+                <dl>
+                    <dt>Subtotal</dt><dd data-summary-subtotal>R$ 0,00</dd>
+                    <dt>Taxa de entrega</dt><dd data-summary-fee>R$ 0,00</dd>
+                    <dt class="summary-total">Valor total</dt><dd class="summary-total" data-summary-total>R$ 0,00</dd>
+                </dl>
+                <p class="parcela-note">
+                    <img src="/images/icons/logo-justdoeat-recortado.png" alt="" width="34" height="34">
+                    <span>Com este pedido, <strong data-summary-parcela>R$ 0,00</strong> vão para instituições parceiras pela Parcela Amiga, sem custo extra para você.</span>
+                </p>
+                <a href="/checkout/endereco" class="btn btn-primary btn-lg btn-block" data-finish-cart>Continuar para o endereço</a>
+                <p class="notice" data-cart-role-note hidden>Para finalizar um pedido, entre com uma conta de cliente.</p>
+                <p class="hero-hint" style="text-align:center" data-cart-login-hint hidden>Você vai entrar na sua conta no próximo passo.</p>
+            </aside>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/cart.js"></script>
+</body>
+</html>

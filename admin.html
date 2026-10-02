@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Admin</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker">Administração</p>
+                <h1>Visão geral</h1>
+            </div>
+
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-admin}}
+            <section class="panel-content">
+                <div data-admin-overview>
+                    <div class="stat-grid">
+                        <div class="stat stat-accent"><h3>Parcela Amiga</h3><strong data-stat="parcelaAmiga">R$ 0,00</strong><small>arrecadados para as instituições</small></div>
+                        <div class="stat"><h3>Pedidos</h3><strong data-stat="totalPedidos">0</strong><small data-stat="ativosTexto">0 em andamento</small></div>
+                        <div class="stat"><h3>Vendido hoje</h3><strong data-stat="vendasHoje">R$ 0,00</strong><small data-stat="pedidosHoje">0 pedidos</small></div>
+                        <div class="stat"><h3>Vendido no total</h3><strong data-stat="faturamento">R$ 0,00</strong><small>sem taxa de entrega</small></div>
+                    </div>
+
+                    <div class="widget-grid">
+                        <section class="widget" aria-labelledby="recentes-titulo">
+                            <h2 id="recentes-titulo">Pedidos recentes <a href="/admin/pedidos">Gerenciar pedidos</a></h2>
+                            <ul class="compact-orders" data-recent-orders></ul>
+                            <p class="muted no-margin" data-recent-empty hidden>Nenhum pedido feito ainda.</p>
+                        </section>
+                        <section class="widget">
+                            <h2>Menu do administrador</h2>
+                            <ul class="admin-links">
+                                <li><a href="/admin/pedidos">Gerenciar pedidos</a></li>
+                                <li><a href="/admin/clientes">Gerenciar clientes</a></li>
+                                <li><a href="/admin/restaurantes">Gerenciar restaurantes</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/dashboard-actions.js"></script>
+</body>
+</html>

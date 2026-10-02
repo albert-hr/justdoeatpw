@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Relatórios</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker"><span data-user-name>Painel do restaurante</span></p>
+                <h1>Relatórios</h1>
+            </div>
+
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-restaurante}}
+            <section class="panel-content">
+                <div data-panel-reports>
+                    <div class="stat-grid">
+                        <div class="stat"><h3>Faturamento total</h3><strong data-stat="faturamento">R$ 0,00</strong><small>sem taxa de entrega</small></div>
+                        <div class="stat"><h3>Vendas do dia</h3><strong data-stat="vendasHoje">R$ 0,00</strong><small data-stat="pedidosHoje">0 pedidos</small></div>
+                        <div class="stat"><h3>Últimos 7 dias</h3><strong data-stat="semanaTotal">R$ 0,00</strong><small data-stat="semanaPedidos">0 pedidos</small></div>
+                        <div class="stat stat-accent"><h3>Parcela Amiga</h3><strong data-stat="parcelaAmiga">R$ 0,00</strong><small>destinados às instituições</small></div>
+                    </div>
+
+                    <section class="widget" aria-labelledby="semana-titulo">
+                        <h2 id="semana-titulo">Vendas da semana</h2>
+                        <p class="muted" data-week-empty hidden>Ainda não há vendas nesta semana. O gráfico se monta sozinho conforme os pedidos chegam.</p>
+                        <div class="bar-chart" role="img" data-week-chart></div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/dashboard-actions.js"></script>
+</body>
+</html>

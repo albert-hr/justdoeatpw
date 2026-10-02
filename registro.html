@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Cadastro</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="form-page">
+    <div class="container">
+        <form class="form-card form-card-wide" action="/api/register" method="post" id="cadastro-form" novalidate>
+            <img src="/images/icons/logo-justdoeat-recortado.png" alt="" class="form-card-logo" width="84" height="84">
+            <h1>Cadastro</h1>
+            <p class="form-intro">Leva menos de um minuto.</p>
+            <input type="hidden" name="next" value="">
+
+            <fieldset class="role-switch">
+                <legend>Tipo de usuário</legend>
+                <label class="role-option">
+                    <input type="radio" name="perfil" value="Cliente" checked>
+                    <span><strong>Sou um Cliente</strong><small>Quero pedir comida</small></span>
+                </label>
+                <label class="role-option">
+                    <input type="radio" name="perfil" value="Restaurante">
+                    <span><strong>Sou um Restaurante</strong><small>Quero vender pelo Just Do Eat</small></span>
+                </label>
+            </fieldset>
+
+            <div class="field">
+                <label for="nome" data-name-label>Nome completo</label>
+                <input type="text" name="nome" id="nome" autocomplete="name" required aria-describedby="nome-error">
+                <small class="field-error" id="nome-error"></small>
+            </div>
+            <div class="field-row">
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" autocomplete="email" required aria-describedby="email-error">
+                    <small class="field-error" id="email-error"></small>
+                </div>
+                <div class="field">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" name="telefone" id="telefone" placeholder="(99) 99999-9999" maxlength="15" inputmode="numeric" autocomplete="tel" required aria-describedby="telefone-error">
+                    <small class="field-error" id="telefone-error"></small>
+                </div>
+            </div>
+            <div class="field-row">
+                <div class="field">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="senha" autocomplete="new-password" required aria-describedby="senha-hint senha-error">
+                    <small class="field-hint" id="senha-hint">A senha deve ter pelo menos 6 caracteres.</small>
+                    <small class="field-error" id="senha-error"></small>
+                </div>
+                <div class="field">
+                    <label for="confirma_senha">Confirmar senha</label>
+                    <input type="password" name="confirma_senha" id="confirma_senha" autocomplete="new-password" required aria-describedby="confirma_senha-error">
+                    <small class="field-error" id="confirma_senha-error"></small>
+                </div>
+            </div>
+
+            <div id="restaurante-fields" hidden>
+                <h2>Dados do restaurante</h2>
+                <div class="field-row">
+                    <div class="field">
+                        <label for="cpf_cnpj">CPF / CNPJ</label>
+                        <input type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="123.456.789-00 ou 12.345.678/0001-90" maxlength="18" inputmode="numeric" aria-describedby="cpf_cnpj-error">
+                        <small class="field-error" id="cpf_cnpj-error"></small>
+                    </div>
+                    <div class="field">
+                        <label for="cep">CEP</label>
+                        <input type="text" name="cep" id="cep" placeholder="12345-678" maxlength="9" inputmode="numeric" autocomplete="postal-code" aria-describedby="cep-error">
+                        <small class="field-error" id="cep-error"></small>
+                    </div>
+                </div>
+                <div class="field-row field-row-3">
+                    <div class="field">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" name="endereco" id="endereco" autocomplete="address-line1">
+                    </div>
+                    <div class="field">
+                        <label for="numero">Número</label>
+                        <input type="text" name="numero" id="numero">
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" name="cidade" id="cidade" autocomplete="address-level2">
+                </div>
+                <div class="field-row">
+                    <div class="field">
+                        <label for="horario_abertura">Horário de abertura</label>
+                        <input type="time" name="horario_abertura" id="horario_abertura">
+                    </div>
+                    <div class="field">
+                        <label for="horario_fechamento">Horário de fechamento</label>
+                        <input type="time" name="horario_fechamento" id="horario_fechamento">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Registrar</button>
+            <p class="form-foot">Já tem uma conta?<a href="/login" data-keep-next>Faça login</a></p>
+        </form>
+    </div>
+</main>
+
+{{> footer-compacto}}
+<script src="/js/registro.js"></script>
+</body>
+</html>

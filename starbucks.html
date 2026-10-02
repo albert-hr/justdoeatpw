@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Starbucks</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mcdonalds.css">
+</head>
+<body data-restaurant="starbucks">
+{{> header}}
+
+<main id="conteudo" class="restaurant-page">
+    <div class="container menu-wrap">
+        <a href="/restaurantes" class="back-link">Voltar aos restaurantes</a>
+
+        <div class="menu-logo" data-menu-logo aria-hidden="true"></div>
+
+        <div class="menu-container">
+            <header class="menu-header">
+                <h1 data-menu-name>Carregando cardápio...</h1>
+                <ul class="menu-facts" data-menu-facts></ul>
+            </header>
+            <nav class="menu-tabs" aria-label="Seções do cardápio" data-menu-tabs hidden></nav>
+            <div data-menu-sections></div>
+            <p class="menu-role-note" data-menu-role-note hidden>Você está vendo o cardápio como restaurante ou administrador. Para fazer pedidos, entre com uma conta de cliente.</p>
+        </div>
+    </div>
+
+    <a href="/carrinho" class="cart-bar" data-cart-bar hidden>
+        <span><strong data-cart-bar-count>0 itens</strong><br><span data-cart-bar-total>R$ 0,00</span></span>
+        <span class="btn btn-primary btn-sm">Ver carrinho</span>
+    </a>
+</main>
+
+{{> footer}}
+<script src="/js/restaurant-page.js"></script>
+</body>
+</html>

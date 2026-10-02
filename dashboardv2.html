@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Dashboard Visão Geral</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker"><span data-user-name>Painel do restaurante</span></p>
+                <h1>Visão geral</h1>
+            </div>
+            <a href="/restaurantes" class="btn btn-secondary" data-my-page-link hidden>Ver minha página</a>
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-restaurante}}
+            <section class="panel-content">
+                <div data-panel-overview>
+                    <div class="notice" data-unpublished-notice hidden>
+                        <p><strong>Seu restaurante ainda não aparece para os clientes.</strong> Monte o cardápio e fale com a gente para publicar a sua página.</p>
+                    </div>
+
+                    <div class="stat-grid">
+                        <div class="stat stat-accent">
+                            <h3>Pedidos ativos</h3>
+                            <strong data-stat="ativos">0</strong>
+                            <small><a href="/painel/pedidos">Abrir fila de pedidos</a></small>
+                        </div>
+                        <div class="stat">
+                            <h3>Vendas do dia</h3>
+                            <strong data-stat="vendasHoje">R$ 0,00</strong>
+                            <small data-stat="pedidosHoje">0 pedidos</small>
+                        </div>
+                        <div class="stat">
+                            <h3>Avaliações</h3>
+                            <strong data-stat="avaliacao">-</strong>
+                            <small data-stat="numAvaliacoes">Sem avaliações ainda</small>
+                        </div>
+                        <div class="stat">
+                            <h3>Parcela Amiga</h3>
+                            <strong data-stat="parcelaAmiga">R$ 0,00</strong>
+                            <small>gerados pelas suas vendas</small>
+                        </div>
+                    </div>
+
+                    <div class="widget-grid">
+                        <section class="widget" aria-labelledby="fila-titulo">
+                            <h2 id="fila-titulo">Pedidos ativos <a href="/painel/pedidos">Ver todos</a></h2>
+                            <ul class="compact-orders" data-recent-orders></ul>
+                            <p class="muted no-margin" data-recent-empty hidden>Nenhum pedido em andamento. Os novos pedidos aparecem aqui assim que o cliente finaliza a compra.</p>
+                        </section>
+                        <section class="widget" aria-labelledby="ranking-titulo">
+                            <h2 id="ranking-titulo">Itens mais vendidos</h2>
+                            <ol class="ranking" data-top-items></ol>
+                            <p class="muted no-margin" data-top-empty hidden>O ranking aparece depois das primeiras vendas.</p>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/dashboard-actions.js"></script>
+</body>
+</html>

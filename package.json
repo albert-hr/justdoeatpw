@@ -4,7 +4,7 @@
   "description": "Backend Node.js para o projeto Just Do Eat",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node local-server.js",
     "dev": "node local-server.js"
   },
   "keywords": [
@@ -16,9 +16,9 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "connect-pg-simple": "^10.0.0",
-    "express": "^5.2.1",
-    "express-session": "^1.19.0",
-    "pg": "^8.21.0"
+    "pg": "^8.23.1"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

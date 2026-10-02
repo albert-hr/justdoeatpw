@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Meu Perfil</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page" data-profile-page>
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker">Meu perfil</p>
+                <h1>Olá, <span data-profile-name>cliente</span></h1>
+            </div>
+            <a href="/restaurantes" class="btn btn-primary">Fazer um pedido</a>
+        </div>
+
+        <div class="widget-grid">
+            <section aria-labelledby="ativos-titulo">
+                <h2 class="section-title panel-section-title" id="ativos-titulo">Pedidos em andamento</h2>
+                <div class="empty-state" data-profile-empty hidden>
+                    <h3>Nenhum pedido em andamento</h3>
+                    <p>Quando você fizer um pedido, o status aparece aqui.</p>
+                    <a href="/restaurantes" class="btn btn-dark">Escolher restaurante</a>
+                </div>
+                <div class="order-list" data-profile-orders></div>
+
+                <div data-profile-history-block hidden>
+                    <h2 class="section-title panel-section-title">Histórico</h2>
+                    <div class="order-list" data-profile-history></div>
+                </div>
+            </section>
+
+            <aside>
+                <section class="widget" aria-labelledby="dados-titulo">
+                    <h2 id="dados-titulo">Seus dados</h2>
+                    <p data-profile-data></p>
+                </section>
+                <section class="widget widget-spaced">
+                    <h2>Precisa de ajuda?</h2>
+                    <p class="no-margin">Problema com um pedido? <a href="/contato">Fale com a gente</a>.</p>
+                </section>
+            </aside>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/profile.js"></script>
+</body>
+</html>

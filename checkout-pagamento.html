@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Pagamento</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="form-page" data-checkout-step="3">
+    <div class="container">
+        {{> etapas-pedido}}
+
+        <form class="form-card form-card-wide" data-checkout-payment data-parcela-percent="{{parcelaPercent}}" novalidate>
+            <h1>Forma de pagamento</h1>
+            <p class="form-intro">Confira o pedido e escolha como pagar.</p>
+
+            <section class="dark-summary" aria-labelledby="resumo-itens">
+                <h2 id="resumo-itens"><span data-checkout-restaurant>Seu pedido</span> <a href="/carrinho">Alterar</a></h2>
+                <ul data-checkout-items></ul>
+                <dl>
+                    <dt>Subtotal</dt><dd data-checkout-subtotal></dd>
+                    <dt>Taxa de entrega</dt><dd data-checkout-fee></dd>
+                    <dt class="summary-total">Total</dt><dd class="summary-total" data-checkout-total></dd>
+                </dl>
+            </section>
+
+            <section class="dark-summary" aria-labelledby="resumo-endereco">
+                <h2 id="resumo-endereco">Entregar em <a href="/checkout/endereco">Alterar</a></h2>
+                <address data-checkout-address-text></address>
+            </section>
+
+            <h2>Como você quer pagar?</h2>
+            <fieldset class="payment-options">
+                <legend class="sr-only">Forma de pagamento</legend>
+                <label class="payment-option"><input type="radio" name="pagamento" value="pix" checked><span>Pix</span></label>
+                <label class="payment-option"><input type="radio" name="pagamento" value="cartao"><span>Cartão de crédito</span></label>
+                <label class="payment-option"><input type="radio" name="pagamento" value="dinheiro"><span>Dinheiro na entrega</span></label>
+            </fieldset>
+
+            <p class="parcela-note">
+                <img src="/images/icons/logo-justdoeat-recortado.png" alt="" width="34" height="34">
+                <span><strong data-checkout-parcela>R$ 0,00</strong> deste pedido vão para instituições parceiras pela Parcela Amiga.</span>
+            </p>
+
+            <button type="submit" class="btn btn-primary btn-lg" data-place-order>Finalizar pedido</button>
+            <div class="form-links">
+                <a href="/checkout/endereco">Voltar ao endereço</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+{{> footer-compacto}}
+<script src="/js/checkout.js"></script>
+</body>
+</html>

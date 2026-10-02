@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Dashboard</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container narrow">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker">Dashboard</p>
+                <h1>Escolha a sua área</h1>
+            </div>
+        </div>
+        <ul class="admin-links">
+            <li><a href="/login?next=%2Fminha-conta">Menu do Cliente: meus pedidos e meu perfil</a></li>
+            <li><a href="/login?next=%2Fpainel">Menu do Restaurante: pedidos, cardápio e relatórios</a></li>
+            <li><a href="/login?next=%2Fadmin">Menu do Administrador: pedidos, clientes e restaurantes</a></li>
+        </ul>
+    </div>
+</main>
+
+{{> footer}}
+
+</body>
+</html>

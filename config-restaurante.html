@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Configuração</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker"><span data-user-name>Painel do restaurante</span></p>
+                <h1>Configuração do restaurante</h1>
+            </div>
+
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-restaurante}}
+            <section class="panel-content">
+                <form class="panel-form" id="config-restaurante-form">
+                    <h2 class="panel-form-title">Dados do restaurante</h2>
+                    <div class="field">
+                        <label for="cfg-nome">Nome</label>
+                        <input id="cfg-nome" name="nome" required>
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="cfg-categoria">Categoria</label>
+                            <input id="cfg-categoria" name="categoria">
+                        </div>
+                        <div class="field">
+                            <label for="cfg-telefone">Telefone</label>
+                            <input id="cfg-telefone" name="telefone">
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="cfg-tempo">Tempo médio</label>
+                            <input id="cfg-tempo" name="tempo">
+                        </div>
+                        <div class="field">
+                            <label for="cfg-taxa">Taxa de entrega</label>
+                            <input id="cfg-taxa" name="taxa">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="cfg-descricao">Descrição para os clientes</label>
+                        <textarea id="cfg-descricao" name="descricao"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar configurações</button>
+                    <p class="field-hint muted">Por enquanto, as configurações ficam salvas neste navegador.</p>
+                </form>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/config-restaurante.js"></script>
+</body>
+</html>

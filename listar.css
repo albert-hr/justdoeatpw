@@ -1,0 +1,34 @@
+/* Gerenciar cardápio do restaurante */
+
+/* ---------- Cardápio do restaurante (gerenciar produtos) ---------- */
+.menu-admin-toolbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.menu-admin-toolbar input {
+    flex: 1; min-width: 200px; padding: 10px 16px; border: 2px solid #C9C9C9; border-radius: 999px; font: 500 1rem var(--font-body);
+}
+.menu-admin-toolbar input:focus { border-color: var(--black); outline: none; }
+.product-admin-list { display: grid; gap: 10px; }
+.product-admin {
+    display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center;
+    width: 100%; text-align: left; cursor: pointer;
+    background: var(--white); border: 2px solid transparent; border-radius: var(--radius-md); padding: 10px 14px;
+    font: inherit; color: inherit;
+}
+.product-admin:hover { border-color: var(--black); }
+.product-admin img { width: 64px; height: 64px; object-fit: contain; background: var(--grey-100); border-radius: var(--radius-sm); padding: 4px; }
+.product-admin h3 { margin: 0; font-size: 1rem; }
+.product-admin p { margin: 0; font-size: 0.875rem; color: var(--text-soft); }
+.product-admin .price { font-size: 1rem; }
+.product-admin.is-inactive { opacity: 0.6; }
+
+.product-dialog { border: 0; border-radius: var(--radius-lg); padding: 0; width: min(560px, calc(100vw - 24px)); }
+.product-dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+.product-dialog form { padding: 28px; }
+.product-dialog h2 { font-size: 1.375rem; }
+.switch { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 700; }
+.switch input { width: 46px; height: 26px; appearance: none; background: var(--grey-400); border-radius: 999px; position: relative; cursor: pointer; transition: background 0.15s; }
+.switch input::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--white); transition: transform 0.15s; }
+.switch input:checked { background: var(--green); }
+.switch input:checked::after { transform: translateX(20px); }
+.dialog-actions { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; margin-top: 22px; }
+.dialog-actions div { display: flex; gap: 10px; }
+.btn-danger-text { background: none; border: 0; color: var(--red-dark); font: 700 1rem var(--font-body); cursor: pointer; text-decoration: underline; padding: 0 4px; }

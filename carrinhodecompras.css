@@ -1,0 +1,37 @@
+/* Carrinho de compras */
+
+/* ---------- Carrinho ---------- */
+.cart-layout { display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: start; }
+.cart-panel { background: var(--white); border-radius: var(--radius-lg); padding: 24px; }
+.cart-restaurant { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 8px; }
+.cart-restaurant h2 { font-size: 1.25rem; margin: 0; }
+.cart-items { list-style: none; margin: 0; padding: 0; }
+.cart-item {
+    display: grid; grid-template-columns: 72px 1fr auto; gap: 16px; align-items: center;
+    padding: 16px 0; border-top: 1px solid var(--grey-200);
+}
+.cart-item img { width: 72px; height: 72px; object-fit: contain; background: var(--grey-100); border-radius: var(--radius-sm); padding: 6px; }
+.cart-item h3 { margin: 0 0 2px; font-size: 1rem; }
+.cart-item-unit { color: var(--text-soft); font-size: 0.875rem; }
+.cart-item-side { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.cart-item-total { font-weight: 700; }
+.cart-panel-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--grey-200); }
+
+.summary { background: var(--white); border-radius: var(--radius-lg); padding: 24px; position: sticky; top: 100px; }
+.summary h2 { font-size: 1.25rem; }
+.summary dl { margin: 0 0 18px; display: grid; grid-template-columns: 1fr auto; gap: 10px 0; }
+.summary dd { padding-left: 12px; }
+.summary dt { color: var(--text-soft); }
+.summary dd { margin: 0; text-align: right; font-weight: 500; }
+.summary .summary-total { font-family: var(--font-display); color: var(--black); font-size: 1.25rem; padding-top: 12px; border-top: 2px solid var(--black); }
+
+/* Responsivo */
+@media (max-width: 1080px) {
+    .cart-layout { grid-template-columns: 1fr; }
+    .summary { position: static; }
+}
+@media (max-width: 720px) {
+    .cart-item { grid-template-columns: 56px 1fr; }
+    .cart-item img { width: 56px; height: 56px; }
+    .cart-item-side { grid-column: 2; flex-direction: row; justify-content: space-between; align-items: center; }
+}

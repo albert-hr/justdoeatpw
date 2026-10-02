@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Pedidos</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker"><span data-user-name>Painel do restaurante</span></p>
+                <h1>Pedidos recebidos</h1>
+            </div>
+
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-restaurante}}
+            <section class="panel-content">
+                <div data-panel-orders>
+                    <h2>Fila de preparo</h2>
+                    <div class="empty-state" data-orders-empty hidden>
+                        <h3>Nenhum pedido em andamento</h3>
+                        <p>Quando um cliente finalizar uma compra no seu restaurante, o pedido aparece aqui.</p>
+                    </div>
+                    <div class="order-list" data-active-orders></div>
+
+                    <div data-finished-block hidden>
+                        <h2 class="panel-section-spaced">Finalizados recentemente</h2>
+                        <div class="order-list" data-finished-orders></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/dashboard-actions.js"></script>
+</body>
+</html>

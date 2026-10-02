@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Endereço</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="form-page" data-checkout-step="2">
+    <div class="container">
+        {{> etapas-pedido}}
+
+        <form class="form-card" data-checkout-address novalidate>
+            <h1>Onde vamos entregar?</h1>
+            <p class="form-intro">Pedido de <strong data-checkout-restaurant>...</strong></p>
+
+            <div class="field-row field-row-3">
+                <div class="field">
+                    <label for="cep">CEP</label>
+                    <input id="cep" name="cep" placeholder="12345-678" maxlength="9" inputmode="numeric" autocomplete="postal-code" required aria-describedby="cep-error">
+                    <small class="field-error" id="cep-error"></small>
+                </div>
+                <div class="field">
+                    <label for="numero">Número</label>
+                    <input id="numero" name="numero" required aria-describedby="numero-error">
+                    <small class="field-error" id="numero-error"></small>
+                </div>
+            </div>
+            <div class="field">
+                <label for="endereco">Endereço</label>
+                <input id="endereco" name="endereco" required autocomplete="address-line1" aria-describedby="endereco-error">
+                <small class="field-error" id="endereco-error"></small>
+            </div>
+            <div class="field">
+                <label for="complemento">Complemento <small>(opcional)</small></label>
+                <input id="complemento" name="complemento">
+            </div>
+            <div class="field">
+                <label for="referencia">Referência <small>(opcional)</small></label>
+                <input id="referencia" name="referencia">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Continuar para pagamento</button>
+            <div class="form-links">
+                <a href="/carrinho">Voltar ao carrinho</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+{{> footer-compacto}}
+<script src="/js/checkout.js"></script>
+</body>
+</html>

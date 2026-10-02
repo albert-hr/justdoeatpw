@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Pedidos Admin</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker">Administração</p>
+                <h1>Gerenciamento de pedidos</h1>
+            </div>
+
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-admin}}
+            <section class="panel-content">
+                <div data-admin-orders>
+                    <div class="empty-state" data-orders-empty hidden>
+                        <h3>Nenhum pedido feito ainda</h3>
+                        <p>Os pedidos de todos os restaurantes aparecem aqui.</p>
+                    </div>
+                    <div class="table-wrap" data-table-wrap hidden>
+                        <table class="table">
+                            <caption class="sr-only">Pedidos da plataforma</caption>
+                            <thead>
+                                <tr><th>Pedido</th><th>Cliente</th><th>Restaurante</th><th>Data</th><th class="num">Total</th><th>Status</th></tr>
+                            </thead>
+                            <tbody data-orders-table></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/dashboard-actions.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Restaurantes Admin</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboardv2.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="panel-page">
+    <div class="container">
+        <div class="panel-heading">
+            <div>
+                <p class="panel-kicker">Administração</p>
+                <h1>Aprovação e gestão de parceiros</h1>
+            </div>
+
+        </div>
+
+        <div class="panel-shell">
+            {{> sidebar-admin}}
+            <section class="panel-content">
+                <div data-admin-restaurants>
+                    <div class="table-wrap">
+                        <table class="table">
+                            <caption class="sr-only">Restaurantes parceiros</caption>
+                            <thead>
+                                <tr><th>Restaurante</th><th>Categoria</th><th>Conta</th><th class="num">Pedidos</th><th>Situação</th><th></th></tr>
+                            </thead>
+                            <tbody data-restaurants-table></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{{> footer}}
+<script src="/js/dashboard-actions.js"></script>
+</body>
+</html>

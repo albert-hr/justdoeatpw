@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Do Eat - Pedido Confirmado</title>
+    <meta name="theme-color" content="#E60000">
+    <link rel="icon" type="image/png" href="/images/icons/logo-justdoeat-recortado.png">
+    <link rel="preload" href="/fonts/archivo-black-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+{{> header}}
+
+<main id="conteudo" class="form-page" data-checkout-step="4">
+    <div class="container">
+        {{> etapas-pedido}}
+
+        <section class="form-card form-card-wide" data-checkout-success aria-labelledby="sucesso-titulo">
+            <div class="success-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="44" height="44"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h1 id="sucesso-titulo">Pedido realizado com sucesso!</h1>
+            <p class="form-intro"><span data-order-restaurant>O restaurante</span> já recebeu o pedido <strong data-order-id>...</strong>. Acompanhe o status na sua conta.</p>
+
+            <section class="dark-summary">
+                <h2><span data-order-restaurant>Pedido</span> <span data-order-status></span></h2>
+                <ul data-order-items></ul>
+                <dl>
+                    <dt>Pagamento</dt><dd data-order-payment></dd>
+                    <dt>Entrega</dt><dd data-order-address></dd>
+                    <dt class="summary-total">Total</dt><dd class="summary-total" data-order-total></dd>
+                </dl>
+            </section>
+
+            <p class="parcela-note">
+                <img src="/images/icons/logo-justdoeat-recortado.png" alt="" width="34" height="34">
+                <span>Obrigado! <strong data-order-parcela>R$ 0,00</strong> deste pedido vão para instituições parceiras pela Parcela Amiga.</span>
+            </p>
+
+            <div class="success-actions">
+                <a href="/minha-conta" class="btn btn-primary btn-lg">Acompanhar pedido</a>
+                <a href="/restaurantes" class="btn btn-secondary">Fazer novo pedido</a>
+            </div>
+        </section>
+    </div>
+</main>
+
+{{> footer-compacto}}
+<script src="/js/checkout.js"></script>
+</body>
+</html>
